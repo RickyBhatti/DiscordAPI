@@ -76,9 +76,9 @@ DiscordAPI is a very lightweight resource and will not cause any performance iss
   
 ## Credits
 Credit to the following resources and their authors for giving me the idea to create a centralized resource.
-[discord_perms](https://github.com/sadboilogan/discord_perms)
-[DiscordAcePerms](https://github.com/JaredScar/DiscordAcePerms)
-[DiscordChatRoles](https://github.com/JaredScar/DiscordChatRoles)
+[discord_perms](https://github.com/sadboilogan/discord_perms)  
+[DiscordAcePerms](https://github.com/JaredScar/DiscordAcePerms)  
+[DiscordChatRoles](https://github.com/JaredScar/DiscordChatRoles)  
   
 ## Contributions
 If you've found a bug, you can go ahead and create an [issue](https://github.com/RickyBGamez/DiscordAPI/issues).  
