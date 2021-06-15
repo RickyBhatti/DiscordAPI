@@ -75,7 +75,7 @@ Check out the [releases](https://github.com/RickyBGamez/DiscordAPI/releases) pag
 DiscordAPI is a very lightweight resource and will not cause any performance issues for you while ensuring permissions and chat tags are correctly and accurately applied.   
   
 ## Credits
-Credit to the following resources and their authors for giving me the idea to create a centralized resource.
+Credit to the following resources and their authors for giving me the idea to create a centralized resource.  
 [discord_perms](https://github.com/sadboilogan/discord_perms)  
 [DiscordAcePerms](https://github.com/JaredScar/DiscordAcePerms)  
 [DiscordChatRoles](https://github.com/JaredScar/DiscordChatRoles)  
