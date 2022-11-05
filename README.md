@@ -1,7 +1,7 @@
 # DiscordAPI
 The ultimate FiveM Discord resource, that allows you to check Discord role(s). With the ability to grant Ace permissions and chat roles based on a Discord role(s).  
 
-Tired of having multiple Discord resources, just to be able to grant Ace permissions, chat roles, and check if a user has a certain Discord Role? Well, look no further. DiscordAPI integrates the 3 most common Discord resources, into one, while exchanging and optimizing them. It will grant and revoke ace groups and permissions, it will grant and revoke chat tags, and will let you check for roles, all based on Discord role(s).
+Tired of having multiple Discord resources, just to be able to grant Ace permissions, chat roles, and check if a user has a certain Discord Role? Well, look no further. DiscordAPI integrates the 3 most common Discord resources, into one, while enhancing and optimizing them. It will grant and revoke ace groups and permissions, it will grant and revoke chat tags, and will let you check for roles, all based on Discord role(s).
   
 ## Features
 - Applies permissions based on Discord roles, this means you can apply group permissions and unique permissions such as command permissions.
