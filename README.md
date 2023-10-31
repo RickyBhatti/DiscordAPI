@@ -62,12 +62,12 @@ This table will contain the Discord Role ID as a key, and what role to grant as 
 This table will contain the Discord Role ID as a key, and what permissions to grant as values within the table.
   
 ## Replacing discord_perms
-If you'd like to replace [discord_perms](https://github.com/sadboilogan/discord_perms) with [DiscordAPI](https://github.com/RickyBGamez/DiscordAPI), you'll need to replace the following lines in all the resources you use within your server:
+If you'd like to replace [discord_perms](https://github.com/sadboilogan/discord_perms) with [DiscordAPI](https://github.com/RickyBhatti/DiscordAPI), you'll need to replace the following lines in all the resources you use within your server:
 - Replace **exports["discord_perms"]:IsRolePresent** with **exports["DiscordAPI"]:isRolePresent**
 - Replace **exports["discord_perms"]:GetRoles** with **exports["DiscordAPI]:getRoles**
   
 ## Download
-Check out the [releases](https://github.com/RickyBGamez/DiscordAPI/releases) page for the newest version.  
+Check out the [releases](https://github.com/RickyBhatti/DiscordAPI/releases) page for the newest version.  
   
 ## Server Performance
 ![](https://i.imgur.com/zk757un.png)
@@ -81,9 +81,9 @@ Credit to the following resources and their authors for giving me the idea to cr
 [DiscordChatRoles](https://github.com/JaredScar/DiscordChatRoles)  
   
 ## Contributions
-If you've found a bug, you can go ahead and create an [issue](https://github.com/RickyBGamez/DiscordAPI/issues).  
-If you've improved the resource, feel free to make a [pull request](https://github.com/RickyBGamez/DiscordAPI/pulls)!  
+If you've found a bug, you can go ahead and create an [issue](https://github.com/RickyBhatti/DiscordAPI/issues).  
+If you've improved the resource, feel free to make a [pull request](https://github.com/RickyBhatti/DiscordAPI/pulls)!  
   
 ## License
-Copyright © 2021 [RickyBGamez](https://github.com/RickyBGamez).  
-This project is [GNU GPL v3.0](https://github.com/RickyBGamez/DiscordAPI/blob/main/LICENSE) licensed.
+Copyright © 2023 [Ricky Bhatti](https://github.com/RickyBhatti).  
+This project is [GNU GPL v3.0](https://github.com/RickyBhatti/DiscordAPI/blob/main/LICENSE) licensed.
