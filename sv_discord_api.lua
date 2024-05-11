@@ -38,7 +38,6 @@ end
 
 function getRoles(user)
     local identifiers = _GetIdentifiersTable(user)
-
     if not identifiers.discord then return {} end
 
     local endpoint = ("guilds/%s/members/%s"):format(GuildID, identifiers.discord)
@@ -51,7 +50,6 @@ end
 
 function isRolePresent(user, role)
     local identifiers = _GetIdentifiersTable(user)
-
     if not identifiers.discord then return false end
 
     local endpoint = ("guilds/%s/members/%s"):format(GuildID, identifiers.discord)
