@@ -2,6 +2,7 @@ local token = "Bot " .. Config.DiscordToken
 
 local pairs = pairs
 local tostring = tostring
+local encode = json.encode
 local decode = json.decode
 
 local _PerformHttpRequest = PerformHttpRequest
@@ -22,7 +23,7 @@ local function DiscordRequest(endpoint, method, jsondata)
             data = dataResponse,
             headers = headersResponse
         }
-    end, method, ((#jsondata > 0 and json.encode(jsondata)) or ""),
+    end, method, ((#jsondata > 0 and encode(jsondata)) or ""),
     {
         ["Content-Type"] = "application/json",
         ["Authorization"] = token
