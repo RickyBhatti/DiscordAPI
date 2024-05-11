@@ -32,16 +32,16 @@ Config = {
     ServerID = true, -- If you'd like the resource to disable the players server ID before their name in chat.
 
     DiscordRoles = { -- Roles you'd like to be able to check for using the Discord API. Name is anything you'd like it to be.
-        [ "Public Cop" ] = "793043744726843412",
+        ["Public Cop"] = "793043744726843412",
     },
 
     AcePermsEnabled = true, -- If you'd like the resource to grant ace permissions or not.
     Groups = { -- These are the group ace permissions that you'd like to grant based off of Discord roles.
-        [ "793044205269680128" ] = "group.admin", --// Role: Owner
-        [ "793043765224931388" ] = "group.member", --// Role: Member
+        ["793044205269680128"] = "group.admin", --// Role: Owner
+        ["793043765224931388"] = "group.member", --// Role: Member
     },
     Permissions = { -- Special command permissions you'd like to grant users with certain Discord roles.
-        [ "793044205269680128" ] = { --// Role: Owner
+        ["793044205269680128"] = { --// Role: Owner
             "aop.*",
             "chattoggle",
         }
