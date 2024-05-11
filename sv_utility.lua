@@ -10,7 +10,7 @@ local insert = table.insert
 local _GetPlayerIdentifiers = GetPlayerIdentifiers
 
 function Log(message)
-    _print("^1DiscordAPI ^7| " .. tostring(message))
+    print("^1DiscordAPI ^7| " .. tostring(message))
 end
 
 local cachcedIdentifiers = {}
@@ -29,6 +29,11 @@ function GetIdentifiersTable(player)
     cachcedIdentifiers[player] = data
     return data
 end
+
+AddEventHandler("playerDropped", function()
+    if not cachedIdentifiers[source] then return end
+    cachedIdentifiers[source] = nil
+end)
 
 function SplitString(input, separator)
     if separator == nil then separator = "%s" end
