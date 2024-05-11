@@ -25,7 +25,7 @@ local function syncTags(source)
 
     if not identifiers.discord then return end
 
-    local roles = getRoles(source)
+    local roles = _getRoles(source)
     local rolesAllowed = {}
     local highestRole, highestRoleIndex = nil, nil
 
@@ -124,7 +124,7 @@ end)
 local function StaffChat(source)
     local src = tonumber(source)
     if not _IsPlayerAceAllowed(src, "DiscordAPI:StaffChat") then sendMessage(src, "You're not authorized to enter staff chat.") return end
-    
+
     playerStaffChatStatus[src] = not (playerStaffChatStatus[src] or false)
 
     if playerStaffChatStatus[src] then
