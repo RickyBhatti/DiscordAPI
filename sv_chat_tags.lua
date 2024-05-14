@@ -34,14 +34,17 @@ local function syncTags(source)
             insert(rolesAllowed, i)
             highestRoleIndex = i
         end
-        if roles ~= nil then
-            for _, v in pairs(roles) do
-                if tostring(RoleList[i][1]) == tostring(v) then
-                    insert(rolesAllowed, i)
-                    highestRole, highestRoleIndex = v, i
-                end
+        
+        if roles == nil then goto skip end
+        
+        for _, v in pairs(roles) do
+            if tostring(RoleList[i][1]) == tostring(v) then
+                insert(rolesAllowed, i)
+                highestRole, highestRoleIndex = v, i
             end
         end
+
+        ::skip::
     end
 
     cachedPlayerRoles[source] = rolesAllowed
@@ -66,11 +69,8 @@ AddEventHandler("chatMessage", function(source, name, message)
     end
 
     if not find(args[1], "/") and not playerStaffChatStatus[source] then
-        if ServerID then
-            _TriggerClientEvent("chatMessage", -1, "^*^7" .. source .. " | " .. role .. name .. "^r^7: " .. message)
-        else
-            _TriggerClientEvent("chatMessage", -1, "^*^7" .. role .. name .. "^r^7: " .. message)
-        end
+        local message = ServerID and ("^*^7" .. source .. " | " .. role .. name .. "^r^7: " .. message) or ("^*^7" .. role .. name .. "^r^7: " .. message)
+        _TriggerClientEvent("chatMessage", -1, message)
     elseif not find(args[1], "/") and playerStaffChatStatus[source] then
         for k, _ in pairs(playerStaffChatStatus) do
             _TriggerClientEvent("chatMessage", k, "^*^7[^8Staff Chat^7] " .. role .. name .. "^r^7: " .. message)
@@ -80,11 +80,11 @@ end)
 
 local function setData(source)
     syncTags(source)
+
+    if not _IsPlayerAceAllowed(source, "DiscordAPI:StaffChat") then return end
     
-    if _IsPlayerAceAllowed(source, "DiscordAPI:StaffChat") then
-        playerStaffChatStatus[tonumber(source)] = false
-        _TriggerClientEvent("DiscordAPI:staffChatStatus", source, false)
-    end
+    playerStaffChatStatus[tonumber(source)] = false
+    _TriggerClientEvent("DiscordAPI:staffChatStatus", source, false)
 end
 
 RegisterNetEvent("DiscordAPI:UpdateChatPermissions")
