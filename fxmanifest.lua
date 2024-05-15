@@ -14,6 +14,7 @@ client_scripts {
 
 server_scripts {
     "sv_config.lua",
+    "sv_utility.lua",
     "**/sv_*.lua"
 }
 
