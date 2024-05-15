@@ -7,11 +7,12 @@ local gsub = string.gsub
 local gmatch = string.gmatch
 local insert = table.insert
 
+cachcedIdentifiers = {}
+
 function Log(message)
     print("^1DiscordAPI ^7| " .. tostring(message))
 end
 
-local cachcedIdentifiers = {}
 function GetIdentifiersTable(player)
     if cachcedIdentifiers[player] then return cachcedIdentifiers[player] end
     local data = {}
