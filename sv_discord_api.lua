@@ -8,9 +8,6 @@ local decode = json.decode
 local _PerformHttpRequest = PerformHttpRequest
 local _Wait = Citizen.Wait
 
-local _GetIdentifiersTable = GetIdentifiersTable
-local _Log = Log
-
 local GuildID = Config.GuildID
 local DiscordRoles = Config.DiscordRoles
 
@@ -37,7 +34,7 @@ local function DiscordRequest(endpoint, method, jsondata)
 end
 
 function getRoles(user)
-    local identifiers = _GetIdentifiersTable(user)
+    local identifiers = GetIdentifiersTable(user)
     if not identifiers.discord then return {} end
 
     local endpoint = ("guilds/%s/members/%s"):format(GuildID, identifiers.discord)
@@ -49,7 +46,7 @@ function getRoles(user)
 end
 
 function isRolePresent(user, role)
-    local identifiers = _GetIdentifiersTable(user)
+    local identifiers = GetIdentifiersTable(user)
     if not identifiers.discord then return false end
 
     local endpoint = ("guilds/%s/members/%s"):format(GuildID, identifiers.discord)
@@ -70,10 +67,10 @@ Citizen.CreateThread(function()
     local guild = DiscordRequest("guilds/" .. GuildID, "GET", {})
 
     if guild.code ~= 200 then
-        _Log("^1An error has occured with your guild information. (".. (guild.data or guild.code) .. ")")
+        Log("^1An error has occured with your guild information. (".. (guild.data or guild.code) .. ")")
         return
     end
 
     local data = decode(guild.data)
-    _Log("Permission guild was set to: " .. data.name .. " (ID: " .. data.id .. ")")
+    Log("Permission guild was set to: " .. data.name .. " (ID: " .. data.id .. ")")
 end)

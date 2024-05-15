@@ -7,8 +7,6 @@ local gsub = string.gsub
 local gmatch = string.gmatch
 local insert = table.insert
 
-local _GetPlayerIdentifiers = GetPlayerIdentifiers
-
 function Log(message)
     print("^1DiscordAPI ^7| " .. tostring(message))
 end
@@ -18,7 +16,7 @@ function GetIdentifiersTable(player)
     if cachcedIdentifiers[player] then return cachcedIdentifiers[player] end
     local data = {}
 
-    for _, v in pairs(_GetPlayerIdentifiers(player))do
+    for _, v in pairs(GetPlayerIdentifiers(player))do
         if sub(v, 1, len("license:")) == "license:" then
             data.license = v
         elseif sub(v, 1, len("discord:")) == "discord:" then

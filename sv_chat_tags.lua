@@ -9,10 +9,6 @@ local insert = table.insert
 local _IsPlayerAceAllowed = IsPlayerAceAllowed
 local _TriggerClientEvent = TriggerClientEvent
 
-local _GetIdentifiersTable = GetIdentifiersTable
-local _getRoles = getRoles
-local _SplitString = SplitString
-
 local RoleList = Config.RoleList
 local ServerID = Config.ServerID
 
@@ -21,11 +17,11 @@ local playerSelectedRole = {}
 local playerStaffChatStatus = {}
 
 local function syncTags(source)
-    local identifiers = _GetIdentifiersTable(source)
+    local identifiers = GetIdentifiersTable(source)
 
     if not identifiers.discord then return end
 
-    local roles = _getRoles(source)
+    local roles = getRoles(source)
     local rolesAllowed = {}
     local highestRole, highestRoleIndex = nil, nil
 
@@ -62,7 +58,7 @@ end
 AddEventHandler("chatMessage", function(source, name, message)
     CancelEvent()
 
-    local source, args, role = tonumber(source), _SplitString(message), playerSelectedRole[source]
+    local source, args, role = tonumber(source), SplitString(message), playerSelectedRole[source]
     if role == nil then
         syncTags(source)
         role = playerSelectedRole[source]
