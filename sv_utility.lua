@@ -7,14 +7,14 @@ local gsub = string.gsub
 local gmatch = string.gmatch
 local insert = table.insert
 
-cachcedIdentifiers = {}
+cachedIdentifiers = {}
 
 function Log(message)
     print("^1DiscordAPI ^7| " .. tostring(message))
 end
 
 function GetIdentifiersTable(player)
-    if cachcedIdentifiers[player] then return cachcedIdentifiers[player] end
+    if cachedIdentifiers[player] then return cachedIdentifiers[player] end
     local data = {}
 
     for _, v in pairs(GetPlayerIdentifiers(player))do
@@ -25,7 +25,7 @@ function GetIdentifiersTable(player)
         end
     end
 
-    cachcedIdentifiers[player] = data
+    cachedIdentifiers[player] = data
     return data
 end
 
