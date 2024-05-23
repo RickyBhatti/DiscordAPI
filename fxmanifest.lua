@@ -4,7 +4,7 @@ game "gta5"
 name "DiscordAPI"
 description "An all one in solution for Discord API, that controls chat tags, permissions."
 author "ricky"
-version "v2.0-dev"
+version "v2.0.0"
 
 lua54 "yes"
 
