@@ -12,7 +12,7 @@ Tired of having multiple Discord resources, just to be able to grant Ace permiss
 - Lightweight resource, no unrequired code.
   
 ## Planned Changes
-- Expand the API features.
+- Expand the API features. (Check for Discord role, check for Discord permission, etc.)  
   
 ## In-Game Example
 ### Ace Permissions (Server console)
@@ -73,6 +73,7 @@ Check out the [releases](https://github.com/RickyBhatti/DiscordAPI/releases) pag
 ![](https://i.imgur.com/zk757un.png)
 
 DiscordAPI is a very lightweight resource and will not cause any performance issues for you while ensuring permissions and chat tags are correctly and accurately applied.   
+NOTE: This image shows the performance of the initial release. It doesn't include the performance improvements made in the latest release (v2).  
   
 ## Credits
 Credit to the following resources and their authors for giving me the idea to create a centralized resource.  
@@ -85,5 +86,5 @@ If you've found a bug, you can go ahead and create an [issue](https://github.com
 If you've improved the resource, feel free to make a [pull request](https://github.com/RickyBhatti/DiscordAPI/pulls)!  
   
 ## License
-Copyright © 2023 [Ricky Bhatti](https://github.com/RickyBhatti).  
+Copyright © 2024 [Ricky Bhatti](https://github.com/RickyBhatti).  
 This project is [GNU GPL v3.0](https://github.com/RickyBhatti/DiscordAPI/blob/main/LICENSE) licensed.
