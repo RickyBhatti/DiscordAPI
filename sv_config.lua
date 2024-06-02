@@ -2,7 +2,7 @@ Config = {
     DiscordToken = "", -- Bot token (The bot must be in your Discord server.)
     GuildID = "", -- Server ID (The server that the roles are based off of.)
 
-    DiscordRequired = true, -- If this is set to true, the resource will kick players who do not have a Discord identifier.
+    DiscordRequired = false, -- If this is set to true, the resource will kick players who do not have a Discord identifier.
 
     ChatRolesEnabled = true, -- If you'd like chat tags, staff chat, enabled or not.
     RoleList = { -- Role ID of 0, will grant the role to everyone.
