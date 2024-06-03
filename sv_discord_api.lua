@@ -33,6 +33,16 @@ local function DiscordRequest(endpoint, method, jsondata)
     return data
 end
 
+function isInGuild(user)
+    local identifiers = GetIdentifiersTable(user)
+    if not identifiers.discord then return false end
+
+    local endpoint = ("guilds/%s/members/%s"):format(GuildID, identifiers.discord)
+    local result = DiscordRequest(endpoint, "GET", {})
+
+    return result.code == 200
+end
+
 function getRoles(user)
     local identifiers = GetIdentifiersTable(user)
     if not identifiers.discord then return {} end
