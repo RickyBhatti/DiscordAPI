@@ -57,6 +57,7 @@ Config = {
         }
     }
     VehicleRestrictionsBlacklist = true, -- If you'd like to blacklist vehicles instead of whitelist them. (Might do it this way?)
+    VehicleDelete = true, -- If you'd like to delete the vehicle if the player doesn't have access to it. (If false, it'll just kick them out of the vehicle.)
     VehicleRestrictionsMessage = "You do not have access to this vehicle.", -- Message to display when a player tries to spawn a vehicle they don't have access to.
     VehicleGroupInheritanceEnabled = true, -- If you'd like to inherit vehicle restrictions from other roles. (If a user has a role that has access to a vehicle, they can spawn it.)
     VehicleInheritance = { --// Role: Owner
