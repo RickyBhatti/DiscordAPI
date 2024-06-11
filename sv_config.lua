@@ -46,4 +46,22 @@ Config = {
             "chattoggle",
         }
     }
+
+    VehicleRestrictionsEnabled = true, -- If you'd like to restrict vehicles based off of Discord roles.
+    VehicleRestrictions = { -- TODO: Decide on a better name for this, plus if it'd be "blacklisting" or "whitelisting" vehicles.
+        ["793044205269680128"] = { --// Role: Owner
+            "adder"
+        },
+        ["793043765224931388"] = { --// Role: Member
+            "baller"
+        }
+    }
+    VehicleRestrictionsBlacklist = true, -- If you'd like to blacklist vehicles instead of whitelist them. (Might do it this way?)
+    VehicleRestrictionsMessage = "You do not have access to this vehicle.", -- Message to display when a player tries to spawn a vehicle they don't have access to.
+    VehicleGroupInheritanceEnabled = true, -- If you'd like to inherit vehicle restrictions from other roles. (If a user has a role that has access to a vehicle, they can spawn it.)
+    VehicleInheritance = { --// Role: Owner
+        ["793043765224931388"] = {
+            "793044205269680128" --// Role: Member
+        }
+    }
 }

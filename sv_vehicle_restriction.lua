@@ -1,0 +1,1 @@
+if not Config.VehicleRestrictionsEnabled then return end
