@@ -15,6 +15,15 @@ AddEventHandler("playerConnecting", function()
 
     -- TODO: Logic goes here.
     -- Compile a list of vehicles the player has access to, based off of their roles. Send this to the client. That should result in a O(1) lookup time for the client.
+
+    local authorizedVehicles = {}
+    for _, v in pairs(roles) do
+        for vehicle, _ in pairs(AuthorizedVehiclesPerRole[tostring(v)]) do
+            authorizedVehicles[vehicle] = true
+        end
+    end
+
+    -- TODO: Return the authorized vehicles to the client.
 end)
 
 --[[
