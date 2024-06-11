@@ -15,3 +15,21 @@ AddEventHandler("playerConnecting", function()
 
     -- TODO: Logic goes here.
 end)
+
+--[[
+    VehicleRestrictions = { -- TODO: Decide on a better name for this, plus if it'd be "blacklisting" or "whitelisting" vehicles.
+        ["793044205269680128"] = { --// Role: Owner
+            "adder"
+        },
+        ["793043765224931388"] = { --// Role: Member
+            "baller"
+        }
+    }
+    VehicleInheritance = { --// Role: Owner
+        ["793043765224931388"] = {
+            "793044205269680128" --// Role: Member
+        }
+    }
+
+    Current logic of the tables.
+]]--
