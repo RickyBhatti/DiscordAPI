@@ -14,6 +14,7 @@ AddEventHandler("playerConnecting", function()
     if roles == nil then return end
 
     -- TODO: Logic goes here.
+    -- Compile a list of vehicles the player has access to, based off of their roles. Send this to the client. That should result in a O(1) lookup time for the client.
 end)
 
 --[[
@@ -31,5 +32,18 @@ end)
         }
     }
 
-    Current logic of the tables.
+    Current logic of the tables. Need to figure out a way that look up is O(1) time.
 ]]--
+local AuthorizedVehiclesPerRole = {} -- TODO: Better name later, just an idea for now.
+for role, vehicles in pairs(Config.VehicleRestrictions) do
+    AuthorizedVehiclesPerRole[role] = {}
+    for _, vehicle in ipairs(vehicles) do
+        AuthorizedVehiclesPerRole[role][vehicle] = true
+    end
+end
+
+for _, inheritedRole in pairs(Config.VehicleInheritance) do
+    for _, vehicle in ipairs(Config.VehicleRestrictions[inheritedRole]) do
+        AuthorizedVehiclesPerRole[role][vehicle] = true
+    end
+end
