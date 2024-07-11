@@ -34,7 +34,7 @@ local function applyPermissions(source)
     local roles = getRoles(source)
     if roles == nil then return end
 
-    local name = _GetPlayerName(source)
+    local name = _GetPlayerName(source) or ""
 
     for _, v in pairs(roles) do
         local groupInformation = groups[tostring(v)]
