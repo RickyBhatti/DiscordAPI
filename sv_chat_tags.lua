@@ -64,10 +64,10 @@ end
 AddEventHandler("chatMessage", function(source, name, message)
     CancelEvent()
 
-    local source, args, role = tonumber(source), SplitString(message), playerSelectedRole[source]
+    local source, args, role = tonumber(source), SplitString(message), playerSelectedRole[source] or "ERROR"
     if role == nil then
         syncTags(source)
-        role = playerSelectedRole[source]
+        role = playerSelectedRole[source] or "ERROR"
     end
 
     if not find(args[1], "/") and not playerStaffChatStatus[source] then
