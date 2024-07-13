@@ -23,7 +23,7 @@ local function syncTags(source)
     local highestRole, highestRoleIndex = nil, nil
     local roles = nil
 
-    if indetifiers.discord then
+    if identifiers.discord then
         roles = getRoles(source)
     end
 
