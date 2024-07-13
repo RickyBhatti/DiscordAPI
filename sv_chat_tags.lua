@@ -19,29 +19,35 @@ local playerStaffChatStatus = {}
 local function syncTags(source)
     local identifiers = GetIdentifiersTable(source)
 
-    if not identifiers.discord then return end
-
-    local roles = getRoles(source)
     local rolesAllowed = {}
     local highestRole, highestRoleIndex = nil, nil
 
-    for i = 1, #RoleList do 
+    for i = 1, #RoleList do
         if tostring(RoleList[i][1]) == "0" then
             insert(rolesAllowed, i)
             highestRoleIndex = i
         end
-        
-        if roles == nil then goto skip end
-        
+    end
+
+    if not identifiers.discord then -- If the player doesn't have a discord identifier, we'll just assign the default role, if it exists.
+        cachedPlayerRoles[source] = rolesAllowed
+        playerSelectedRole[source] = RoleList[highestRoleIndex][2]
+        return 
+    end
+
+    local roles = getRoles(source)
+    if roles == nil then goto skip end
+
+    for i = 1, #RoleList do 
         for _, v in pairs(roles) do
             if tostring(RoleList[i][1]) == tostring(v) then
                 insert(rolesAllowed, i)
                 highestRole, highestRoleIndex = v, i
             end
         end
-
-        ::skip::
     end
+
+    ::skip::
 
     cachedPlayerRoles[source] = rolesAllowed
     playerSelectedRole[source] = RoleList[highestRoleIndex][2]
@@ -139,3 +145,18 @@ end, false)
 RegisterCommand("sc", function(source)
     StaffChat(source)
 end, false)
+
+Citizen.CreateThread(function()
+    local defaultRoleFound = false
+
+    for i = 1, #RoleList do
+        if tostring(RoleList[i][1]) == "0" then
+            defaultRoleFound = true
+            break
+        end
+    end
+
+    if not defaultRoleFound then
+        Log("There was no default role found, please ensure you add a default role in the configuration. Ensure that the role ID is set to 0. The resource may not function as expected.")
+    end
+end)

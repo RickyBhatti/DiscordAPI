@@ -3,7 +3,7 @@ Config = {
     GuildID = "", -- Server ID (The server that the roles are based off of.)
 
     ChatRolesEnabled = true, -- If you'd like chat tags, staff chat, enabled or not.
-    RoleList = { -- Role ID of 0, will grant the role to everyone.
+    RoleList = { -- Role ID of 0, will grant the role to everyone. (Ensure that you have a default role)
         {0, "👦🏻 ^4Civilian | "}, -- All.
         {793043765224931388, "👨🏼‍🎓 ^3Member | "}, -- Member
         {793043749164417054, "👨🏼‍🎓 ^2Civilian | "}, -- Certified Civilian
