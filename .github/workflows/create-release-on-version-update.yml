@@ -1,5 +1,3 @@
-# This is a basic workflow to help you get started with Actions
-
 name: Create Release on Version Update
 
 # Controls when the workflow will run
@@ -36,7 +34,7 @@ jobs:
           echo "version=$version" >> $GITHUB_ENV
 
       # Compare with the latest GitHub release
-      - name: Get latest release
+      - name: Get the latest release
         id: get_latest_release
         uses: octokit/request-action@v2.x
         with:
@@ -50,6 +48,7 @@ jobs:
           if [ "$VERSION" == "${{ steps.get_latest_release.outputs.tag_name }}" ]; then
             echo "Version has not changed. Exiting."
             echo "version_updated=false" >> $GITHUB_ENV
+            exit 0
           else
             echo "Version has changed to $VERSION."
             echo "version_updated=true" >> $GITHUB_ENV
@@ -60,7 +59,18 @@ jobs:
         run: |
           zip -r release-${VERSION}.zip .
 
-      # Create a new GitHub release if the version has updated
+      # Create the changelog URL if the version has been updated
+      - name: Generate changelog URL
+        if: env.version_updated == 'true'
+        id: generate_changelog
+        run: |
+          previous_version=${{ steps.get_latest_release.outputs.tag_name }}
+          current_version=$VERSION
+          repository=${{ github.repository }}
+          changelog_url="https://github.com/$repository/compare/$previous_version...$current_version"
+          echo "changelog_url=$changelog_url" >> $GITHUB_ENV
+
+      # Create a new GitHub release if the version has been updated
       - name: Create GitHub Release
         if: env.version_updated == 'true'
         uses: actions/create-release@v1
@@ -69,6 +79,8 @@ jobs:
           release_name: Release ${{ env.version }}
           body: |
             This release corresponds to version ${{ env.version }} in `fxmanifest.lua`.
+
+            **Full Changelog**: ${{ env.changelog_url }}
           draft: false
           prerelease: false
         env:
@@ -80,6 +92,6 @@ jobs:
         uses: actions/upload-release-asset@v1
         with:
           upload_url: ${{ steps.create-release.outputs.upload_url }}
-          asset_path: release-${VERSION}.zip
-          asset_name: release-${VERSION}.zip
+          asset_path: DiscordAPI-${VERSION}.zip
+          asset_name: DiscordAPI-${VERSION}.zip
           asset_content_type: application/zip
