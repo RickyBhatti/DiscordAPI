@@ -45,7 +45,7 @@ jobs:
       - name: Check if version updated
         id: version_check
         run: |
-          if [ "$VERSION" == "${{ fromJson(steps.get_latest_release.outputs.data).tag_name }}" ]; then
+          if [ "$version" == "${{ fromJson(steps.get_latest_release.outputs.data).tag_name }}" ]; then
             echo "Version has not changed. Exiting."
             echo "version_updated=false" >> $GITHUB_ENV
             exit 0
@@ -65,7 +65,7 @@ jobs:
         id: generate_changelog
         run: |
           previous_version=${{ steps.get_latest_release.outputs.tag_name }}
-          current_version=$VERSION
+          current_version=$version
           repository=${{ github.repository }}
           changelog_url="https://github.com/$repository/compare/$previous_version...$current_version"
           echo "changelog_url=$changelog_url" >> $GITHUB_ENV
