@@ -29,7 +29,7 @@ jobs:
         id: read_version
         run: |
           # Extract the version from fxmanifest.lua
-          version=$(grep -oP 'version\s+"v\d+\.\d+\.\d+"' fxmanifest.lua | grep -oP 'v\d+\.\d+\.\d+')
+          version=$(grep -oP 'version\s+"v\K\d+\.\d+\.\d+"' fxmanifest.lua)
           echo "Detected version: $version"
           echo "version=$version" >> $GITHUB_ENV
 
@@ -45,7 +45,7 @@ jobs:
       - name: Check if version updated
         id: version_check
         run: |
-          if [ "$VERSION" == "${{ steps.get_latest_release.outputs.tag_name }}" ]; then
+          if [ "$VERSION" == "${{ steps.get_latest_release.outputs.data }}" ]; then
             echo "Version has not changed. Exiting."
             echo "version_updated=false" >> $GITHUB_ENV
             exit 0
