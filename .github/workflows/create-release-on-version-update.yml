@@ -65,7 +65,7 @@ jobs:
         if: env.version_updated == 'true'
         id: generate_changelog
         run: |
-          previous_version=${{ steps.get_latest_release.outputs.tag_name }}
+          previous_version=${{ fromJson(steps.get_latest_release.outputs.data).tag_name }}
           current_version=$version
           repository=${{ github.repository }}
           changelog_url="https://github.com/$repository/compare/$previous_version...$current_version"
