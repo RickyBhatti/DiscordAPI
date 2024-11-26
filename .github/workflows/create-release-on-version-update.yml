@@ -57,7 +57,7 @@ jobs:
       - name: Create archive
         if: env.version_updated == 'true'
         run: |
-          zip -r release-${VERSION}.zip .
+          zip -r DiscordAPI-${VERSION}.zip .
 
       # Create the changelog URL if the version has been updated
       - name: Generate changelog URL
