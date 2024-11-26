@@ -52,6 +52,7 @@ jobs:
           else
             echo "Version has changed to $VERSION."
             echo "version_updated=true" >> $GITHUB_ENV
+          fi
 
       # Create a .zip of the repository files
       - name: Create archive
