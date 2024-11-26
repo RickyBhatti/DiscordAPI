@@ -38,7 +38,7 @@ jobs:
       # Compare with the latest GitHub release
       - name: Get latest release
         id: get_latest_release
-        uses: octokit/request-action@v3
+        uses: octokit/request-action@v2
         with:
           route: GET /repos/${{ github.repository }}/releases/latest
         env:
