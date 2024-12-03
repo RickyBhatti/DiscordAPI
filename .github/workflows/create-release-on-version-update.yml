@@ -57,7 +57,7 @@ jobs:
       - name: Create archive
         if: env.version_updated == 'true'
         run: |
-          zip -r DiscordAPI-${VERSION}.zip .
+          zip -r DiscordAPI.zip . -x '.git/*'
 
       # Create the changelog URL if the version has been updated
       - name: Generate changelog URL
@@ -93,6 +93,6 @@ jobs:
         uses: actions/upload-release-asset@v1
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: DiscordAPI-${VERSION}.zip
-          asset_name: DiscordAPI-${VERSION}.zip
+          asset_path: DiscordAPI.zip
+          asset_name: DiscordAPI.zip
           asset_content_type: application/zip
