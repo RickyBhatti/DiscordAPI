@@ -2,7 +2,10 @@ if not Config.DiscordRequired then return end
 
 local GuildRequired = Config.GuildRequired
 
-AddEventHandler("playerConnecting", function(name, setKickReason, deferrals)
+AddEventHandler("playerConnecting", function(_, _, deferrals)
+    deferrals.defer()
+    Wait(0)
+    
     local identifiers = GetIdentifiersTable(source)
     local discord = identifiers.discord
 
