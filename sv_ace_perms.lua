@@ -7,6 +7,7 @@ local _GetIdentifiersTable = GetIdentifiersTable
 local _getRoles = getRoles
 local _ExecuteCommand = ExecuteCommand
 local _GetPlayerName = GetPlayerName
+local _Log = Log
 
 local groups = Config.Groups
 local permissions = Config.Permissions
@@ -44,14 +45,14 @@ local function applyPermissions(source)
 
         if not groupInformation then goto skipGroupInformation end
         _ExecuteCommand(groupAdd:format(license, groupInformation))
-        Log("Granted \"" .. groupInformation.. "\" to " .. name .. " (" .. license .. ").")
+        _Log("Granted \"" .. groupInformation.. "\" to " .. name .. " (" .. license .. ").")
         ::skipGroupInformation::
 
         if not permissionInformation then goto skipPermissionInformation end
-        Log("Granting permission set for role ID: " .. v .. ".")
+        _Log("Granting permission set for role ID: " .. v .. ".")
         for _, v2 in pairs(permissionInformation) do
             _ExecuteCommand(permissionAdd:format(license, v2))
-            Log("Granted \"" .. v2.. "\" to " .. name  .. " (" .. license .. ") due to them having the role ID: " .. v .. ".")
+            _Log("Granted \"" .. v2.. "\" to " .. name  .. " (" .. license .. ") due to them having the role ID: " .. v .. ".")
         end
         ::skipPermissionInformation::
     end
