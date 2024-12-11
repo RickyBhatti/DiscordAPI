@@ -4,7 +4,7 @@ game "gta5"
 name "DiscordAPI"
 description "An all one in solution for Discord API, that controls chat tags, permissions."
 author "ricky"
-version "v2.2.1"
+version "v2.2.2"
 
 lua54 "yes"
 
@@ -14,7 +14,11 @@ client_scripts {
 
 server_scripts {
     "sv_config.lua",
-    "**/sv_*.lua"
+    "sv_utility.lua",
+    "sv_discord_api.lua",
+    "sv_ace_perms.lua",
+    "sv_chat_tags.lua",
+    "sv_deferrals.lua"
 }
 
 server_exports {
