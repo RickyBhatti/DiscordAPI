@@ -96,3 +96,5 @@ jobs:
           asset_path: DiscordAPI.zip
           asset_name: DiscordAPI.zip
           asset_content_type: application/zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
