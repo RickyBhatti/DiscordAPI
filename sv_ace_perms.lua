@@ -3,6 +3,8 @@ if not Config.AcePermsEnabled then return end
 local pairs = pairs
 local tostring = tostring
 
+local _GetIdentifiersTable = GetIdentifiersTable
+local _getRoles = getRoles
 local _ExecuteCommand = ExecuteCommand
 local _GetPlayerName = GetPlayerName
 
@@ -18,7 +20,7 @@ local permissionAdd = "add_ace identifier.%s \"%s\" allow"
 local permissionRemove = "remove_ace identifier.%s \"%s\" allow"
 
 local function applyPermissions(source)
-    local identifiers = GetIdentifiersTable(source)
+    local identifiers = _GetIdentifiersTable(source)
     local license, discord = identifiers.license, identifiers.discord
 
     for _, v in pairs(groupsToRemove) do
@@ -31,7 +33,7 @@ local function applyPermissions(source)
 
     if not discord then return end
 
-    local roles = getRoles(source)
+    local roles = _getRoles(source)
     if roles == nil then return end
 
     local name = _GetPlayerName(source) or ""
@@ -41,14 +43,14 @@ local function applyPermissions(source)
         local permissionInformation = permissions[tostring(v)]
 
         if not groupInformation then goto skipGroupInformation end
-        ExecuteCommand(groupAdd:format(license, groupInformation))
+        _ExecuteCommand(groupAdd:format(license, groupInformation))
         Log("Granted \"" .. groupInformation.. "\" to " .. name .. " (" .. license .. ").")
         ::skipGroupInformation::
 
         if not permissionInformation then goto skipPermissionInformation end
         Log("Granting permission set for role ID: " .. v .. ".")
         for _, v2 in pairs(permissionInformation) do
-            ExecuteCommand(permissionAdd:format(license, v2))
+            _ExecuteCommand(permissionAdd:format(license, v2))
             Log("Granted \"" .. v2.. "\" to " .. name  .. " (" .. license .. ") due to them having the role ID: " .. v .. ".")
         end
         ::skipPermissionInformation::
