@@ -5,6 +5,7 @@ local tostring = tostring
 local encode = json.encode
 local decode = json.decode
 
+local _GetIdentifiersTable = GetIdentifiersTable
 local _PerformHttpRequest = PerformHttpRequest
 local _Wait = Citizen.Wait
 
@@ -34,7 +35,7 @@ local function DiscordRequest(endpoint, method, jsondata)
 end
 
 function isInGuild(user)
-    local identifiers = GetIdentifiersTable(user)
+    local identifiers = _GetIdentifiersTable(user)
     if not identifiers.discord then return false end
 
     local endpoint = ("guilds/%s/members/%s"):format(GuildID, identifiers.discord)
@@ -44,7 +45,7 @@ function isInGuild(user)
 end
 
 function getRoles(user)
-    local identifiers = GetIdentifiersTable(user)
+    local identifiers = _GetIdentifiersTable(user)
     if not identifiers.discord then return {} end
 
     local endpoint = ("guilds/%s/members/%s"):format(GuildID, identifiers.discord)
@@ -56,7 +57,7 @@ function getRoles(user)
 end
 
 function isRolePresent(user, role)
-    local identifiers = GetIdentifiersTable(user)
+    local identifiers = _GetIdentifiersTable(user)
     if not identifiers.discord then return false end
 
     local endpoint = ("guilds/%s/members/%s"):format(GuildID, identifiers.discord)

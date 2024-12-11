@@ -6,6 +6,8 @@ local tonumber = tonumber
 local find = string.find
 local insert = table.insert
 
+local _GetIdentifiersTable = GetIdentifiersTable
+local _getRoles = getRoles
 local _IsPlayerAceAllowed = IsPlayerAceAllowed
 local _TriggerClientEvent = TriggerClientEvent
 
@@ -17,14 +19,14 @@ local playerSelectedRole = {}
 local playerStaffChatStatus = {}
 
 local function syncTags(source)
-    local identifiers = GetIdentifiersTable(source)
+    local identifiers = _GetIdentifiersTable(source)
 
     local rolesAllowed = {}
     local highestRole, highestRoleIndex = nil, nil
     local roles = nil
 
     if identifiers.discord then
-        roles = getRoles(source)
+        roles = _getRoles(source)
     end
 
     for i = 1, #RoleList do
@@ -48,7 +50,7 @@ local function syncTags(source)
 end
 
 local function sendMessage(source, message)
-    TriggerClientEvent("chat:addMessage", source, {
+    _TriggerClientEvent("chat:addMessage", source, {
         color = {255, 0, 0},
         multiline = true,
         args = {"Server", tostring(message)}
