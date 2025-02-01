@@ -2,9 +2,9 @@ fx_version "cerulean"
 game "gta5" 
 
 name "DiscordAPI"
-description "An all one in solution for Discord API, that controls chat tags, permissions."
+description "An all-in-one solution for your Discord API needs in FiveM."
 author "ricky"
-version "2.2.3"
+version "2.3.0"
 
 lua54 "yes"
 
