@@ -15,6 +15,7 @@ client_scripts {
 server_scripts {
     "sv_config.lua",
     "sv_utility.lua",
+    "sv_main.lua",
     "sv_discord_api.lua",
     "sv_ace_perms.lua",
     "sv_chat_tags.lua",
