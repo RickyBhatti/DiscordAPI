@@ -88,5 +88,5 @@ If you've found a bug, you can go ahead and create an [issue](https://github.com
 If you've improved the resource, feel free to make a [pull request](https://github.com/RickyBhatti/DiscordAPI/pulls)!  
   
 ## License
-Copyright © 2024 [Ricky Bhatti](https://github.com/RickyBhatti).  
+Copyright © 2025 [Ricky Bhatti](https://github.com/RickyBhatti).  
 This project is [GNU GPL v3.0](https://github.com/RickyBhatti/DiscordAPI/blob/main/LICENSE) licensed.
