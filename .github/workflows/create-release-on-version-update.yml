@@ -38,7 +38,7 @@ jobs:
         id: read_version
         run: |
           # Extract the version from fxmanifest.lua
-          version=$(grep -oP 'version\s+"v\K\d+\.\d+\.\d+(?=")' fxmanifest.lua)
+          version=$(grep -oP 'version\s+"\K\d+\.\d+\.\d+(?=")' fxmanifest.lua)
           echo "Detected version: $version"
           echo "version=$version" >> $GITHUB_ENV
 
@@ -86,9 +86,9 @@ jobs:
         uses: actions/create-release@v1
         with:
           tag_name: ${{ env.version }}
-          release_name: Release ${{ env.version }}
+          release_name: Release v${{ env.version }}
           body: |
-            This release corresponds to version ${{ env.version }} in `fxmanifest.lua`.
+            This release corresponds to version v${{ env.version }} in `fxmanifest.lua`.
 
             **Full Changelog**: ${{ env.changelog_url }}
           draft: false
