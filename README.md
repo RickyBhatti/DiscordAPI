@@ -4,12 +4,14 @@ The ultimate FiveM Discord resource, that allows you to check Discord role(s). W
 Tired of having multiple Discord resources, just to be able to grant Ace permissions, chat roles, and check if a user has a certain Discord Role? Well, look no further. DiscordAPI integrates the 3 most common Discord resources, into one, while enhancing and optimizing them. It will grant and revoke ace groups and permissions, it will grant and revoke chat tags, and will let you check for roles, all based on Discord role(s).
   
 ## Features
-- Applies permissions based on Discord roles, this means you can apply group permissions and unique permissions such as command permissions.
-- Removes all permissions, to ensure no one has any permission they're not supposed to.
-- In-game chat tags based on Discord roles.
-- Display server ID within their chat message.
-- Ability to check for certain Discord Roles.
-- Lightweight resource, no unrequired code.
+- Ensures players have Discord linked to their FiveM account.
+- Verifies membership in your Discord guild before granting access.
+- Applies in-game permissions based on Discord roles (including command-specific and group-based permissions).
+- Resets all permissions on join to prevent unauthorized access.
+- Displays in-game chat tags based on Discord roles.
+- Shows a player’s server ID in their chat messages.
+- Allows checking for specific Discord roles.
+- Lightweight and optimized — no unnecessary code.
   
 ## Planned Changes
 - Expand the API features. (Check for Discord role, check for Discord permission, etc.)  
