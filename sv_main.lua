@@ -12,7 +12,7 @@ Citizen.CreateThread(function()
     end
     
     if not IsPrincipalAceAllowed(principal, "command.add_ace") then 
-        Log("^1WARNING: DiscordAPI is missing the 'command.add_ace' permission. The resource may not function as intended. PPlease grant this permission in the server.cfg.") 
+        Log("^1WARNING: DiscordAPI is missing the 'command.add_ace' permission. The resource may not function as intended. Please grant this permission in the server.cfg.") 
     end
 
     if not IsPrincipalAceAllowed(principal, "command.remove_principal") then 
@@ -29,7 +29,7 @@ Citizen.CreateThread(function()
             return
         end
             
-        if version ~= tostring(text) then
+        if version ~= tostring(text):gsub("\n", "") then
             Log("^1WARNING: Your version of DiscordAPI doesn't match the latest version.")
             Log("^1WARNING: Your version: ^7" .. version)
             Log("^1WARNING: Latest version: ^7" .. text)
