@@ -6,10 +6,11 @@ local _isInGuild = isInGuild
 local GuildRequired = Config.GuildRequired
 
 AddEventHandler("playerConnecting", function(_, _, deferrals)
+    local src = source
     deferrals.defer()
     Wait(0)
     
-    local identifiers = _GetIdentifiersTable(source)
+    local identifiers = _GetIdentifiersTable(src)
     local discord = identifiers.discord
 
     if not discord then
@@ -17,7 +18,7 @@ AddEventHandler("playerConnecting", function(_, _, deferrals)
         return
     end
 
-    if GuildRequired and not _isInGuild(source) then
+    if GuildRequired and not _isInGuild(src) then
         deferrals.done("You must be in the Discord server to join this server.")
         return
     end
