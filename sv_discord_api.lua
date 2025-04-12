@@ -72,6 +72,8 @@ function isRolePresent(user, role)
             return true
         end
     end
+
+    return false
 end
 
 Citizen.CreateThread(function()
