@@ -4,7 +4,7 @@ game "gta5"
 name "DiscordAPI"
 description "An all-in-one solution for your Discord API needs in FiveM."
 author "ricky"
-version "2.3.1"
+version "2.3.2"
 
 lua54 "yes"
 
